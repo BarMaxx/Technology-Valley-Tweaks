@@ -2,16 +2,18 @@ package ru.hollowhorizon.technologyvalley
 
 import com.aetherteam.aether.world.LevelUtil
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.stats.StatType
 import net.minecraft.stats.Stats
+import net.neoforged.bus.api.IEventBus
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
 import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent
-import net.neoforged.neoforge.event.entity.player.PlayerSetSpawnEvent
+import ru.hollowhorizon.technologyvalley.registries.Items
+import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
 
 @Mod(TechnologyValley.ID)
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME)
+
 object TechnologyValley {
     const val ID = "technologyvalley"
 
@@ -29,4 +31,10 @@ object TechnologyValley {
             player.setRespawnPosition(LevelUtil.destinationDimension(), pos, 0f, true, false)
         }
     }
+
+    init {
+
+        Items.Items.register(MOD_BUS)
+    }
+
 }
