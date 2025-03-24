@@ -34,17 +34,10 @@ object TechnologyValley {
         }
     }
 
-    @SubscribeEvent
-    fun buildContents(event: BuildCreativeModeTabContentsEvent) {
-        if (event.tabKey === CreativeModeTabs.INGREDIENTS) {
-            event.accept(Items.FIRE_IRON.get())
-            event.accept(Items.ZANITE_CATALYST.get())
-        }
-    }
-
     init {
 
         Items.Items.register(MOD_BUS)
+
     }
 
 }
