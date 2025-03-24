@@ -1,8 +1,4 @@
 {
-  "itemGroup.technologyvalley": "Example Mod Tab",
-  "block.technologyvalley.example_block": "Example Block",
-  "item.technologyvalley.example_item": "Example Item",
-
   "item.technologyvalley.fire_iron": "Fire Iron",
   "item.technologyvalley.zanite_catalyst": "Zanite Catalyst"
 }

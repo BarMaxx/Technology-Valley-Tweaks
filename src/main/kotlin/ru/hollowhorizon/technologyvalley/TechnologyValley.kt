@@ -3,13 +3,15 @@ package ru.hollowhorizon.technologyvalley
 import com.aetherteam.aether.world.LevelUtil
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.stats.Stats
-import net.neoforged.bus.api.IEventBus
+import net.minecraft.world.item.CreativeModeTabs
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
 import net.neoforged.fml.common.Mod
+import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent
 import net.neoforged.neoforge.event.entity.player.PlayerEvent.PlayerLoggedInEvent
 import ru.hollowhorizon.technologyvalley.registries.Items
 import thedarkcolour.kotlinforforge.neoforge.forge.MOD_BUS
+
 
 @Mod(TechnologyValley.ID)
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.GAME)
@@ -29,6 +31,14 @@ object TechnologyValley {
             player.teleportTo(aether, pos.x.toDouble(), pos.y.toDouble(), pos.z.toDouble(), player.xRot, player.yHeadRot)
             aether.setDefaultSpawnPos(pos, 0f)
             player.setRespawnPosition(LevelUtil.destinationDimension(), pos, 0f, true, false)
+        }
+    }
+
+    @SubscribeEvent
+    fun buildContents(event: BuildCreativeModeTabContentsEvent) {
+        if (event.tabKey === CreativeModeTabs.INGREDIENTS) {
+            event.accept(Items.FIRE_IRON.get())
+            event.accept(Items.ZANITE_CATALYST.get())
         }
     }
 
