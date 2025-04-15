@@ -1,6 +1,7 @@
 package ru.hollowhorizon.technologyvalley.registries
 
 import net.minecraft.world.item.Item
+import net.minecraft.world.item.Rarity
 import net.neoforged.neoforge.registries.DeferredRegister
 import ru.hollowhorizon.technologyvalley.TechnologyValley
 
@@ -18,6 +19,8 @@ object Items {
         "zanite_catalyst",
         ::Item,
         Item.Properties()
+            .rarity(Rarity.UNCOMMON)
+            .stacksTo(1)
     )
 
 }
